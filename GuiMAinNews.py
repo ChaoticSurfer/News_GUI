@@ -24,7 +24,7 @@ win.resizable(0, 0)
 
 fl1 = tk.LabelFrame(win, text="View news")
 fl1.pack()
-# პრობლემას ქმნის textvariable ამოუცნობი მიზეზების და გამო. იძებნება Solution
+#<><><> Problem is caused by textvariable. Loking for solution<><><>
 text = scrolledtext.ScrolledText(fl1, borderwidth=5, textvariable=var_st1, width=500, state='disabled')
 text.pack(fill='both', expand='yes')
 

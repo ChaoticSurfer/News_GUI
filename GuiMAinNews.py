@@ -27,7 +27,7 @@ fl1.pack()
 #<><><> Problem is caused by textvariable. Loking for solution<><><>
 text = scrolledtext.ScrolledText(fl1, borderwidth=5, textvariable=var_st1, width=500, state='disabled')
 text.pack(fill='both', expand='yes')
-
+#<><><><><><><><><><><><><><><>
 tk.Label(win, text="search what what are you itnereseted in").pack(side=LEFT)
 ent = tk.Entry(win).pack(side=RIGHT)
 but1 = tk.Button(win, text="Search").pack(side=LEFT)

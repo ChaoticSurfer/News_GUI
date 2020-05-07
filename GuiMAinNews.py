@@ -21,15 +21,25 @@ win.resizable(0, 0)
 
 fl1 = tk.LabelFrame(win, text="View news").pack()
 
+nb = ttk.Notebook(win)
+nb.pack(side='top', expand=1, fill='both', padx=10, pady=10)
+
 
 def create_text_widget(some_text):
     text = scrolledtext.ScrolledText(fl1, borderwidth=5, width=450)
     text.insert(0.0, some_text)
     text.configure(state='disabled')
     text.pack(fill='both', expand=1, padx=10)
+    return text
 
 
-create_text_widget(i1)
+for news, num in zip(info, range(55)):
+    # tab_name = 'tab' + str(num)
+    tab = create_text_widget(news)
+    nb.add(tab, name=news['title'].split()[:2] + '..')
+    del tab
+
+# create_text_widget(i1)
 
 tk.Label(win, text="search what what are you intereseted in").pack(side='left')
 ent = tk.Entry(win).pack(side='right', fill='x', expand=1)

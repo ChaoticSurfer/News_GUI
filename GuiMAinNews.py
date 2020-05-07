@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import scrolledtext
-
+import re
 from scrap_news import scrapppping
 
 info = scrapppping()

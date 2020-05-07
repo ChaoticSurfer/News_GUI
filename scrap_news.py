@@ -30,8 +30,6 @@ def scrapppping():
 
     return result
 
-    # content = str(content).split()[0]
-
 
 a = scrapppping()
 print(a)

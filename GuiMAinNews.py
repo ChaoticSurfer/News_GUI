@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import scrolledtext
-import tkinter
+
 from scrap_news import scrapppping
 
 info = scrapppping()
@@ -25,8 +25,10 @@ win.resizable(0, 0)
 fl1 = tk.LabelFrame(win, text="View news")
 fl1.pack()
 
-scrolledtext.ScrolledText(fl1, borderwidth=3, textvariable=var_st1, width=500, state='disabled').pack(fill='both',expand='yes')
+text = scrolledtext.ScrolledText(fl1, borderwidth=5, textvariable=var_st1, width=500, state='disabled')
+text.pack(fill='both', expand='yes')
 
-
-
+tk.Label(win, text="search what what are you itnereseted in").pack(side=LEFT)
+ent = tk.Entry(win).pack(side=RIGHT)
+but1 = tk.Button(win, text="Search").pack(side=LEFT)
 win.mainloop()

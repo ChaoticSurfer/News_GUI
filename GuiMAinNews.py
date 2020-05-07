@@ -36,7 +36,7 @@ def create_text_widget(some_text):
 for news, num in zip(info, range(55)):
     # tab_name = 'tab' + str(num)
     tab = create_text_widget(news)
-    nb.add(tab, name=news['title'].split()[:2] + '..')
+    nb.add(tab, text=news['title'].split()[:2] + '..')
     del tab
 
 # create_text_widget(i1)

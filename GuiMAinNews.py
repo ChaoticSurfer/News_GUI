@@ -4,42 +4,47 @@ import re
 from tkinter import ttk
 from scrap_news import scrapppping
 
-info = scrapppping()
+info = scrapppping()[:35]
 
 win = tk.Tk()
 win.title = "news"
 
-i1 = f"{info[0]['time']} --> {str(info[0]['title'])}  \n\n {info[0]['content']}"
 
-screen_width = int(win.winfo_screenwidth() * 85 // 100)
+def get_text_from_news(info):
+    return f"{info['time']} --> {str(info['title'])}  \n\n {info['content']}"
+
+
+# for iteration
+
+screen_width = int(win.winfo_screenwidth())
 screen_height = int(win.winfo_screenheight() * 85 // 100)
-scPlus1 = int(win.winfo_screenwidth() * 7.5 // 100)
-scPlus2 = int(win.winfo_screenheight() * 3 // 100)
+scPlus1 = 0                 # int(win.winfo_screenwidth() * 7.5 // 100)
+scPlus2 = int(win.winfo_screenheight() * 2 // 100)
 win.iconbitmap(tk.PhotoImage('img/news.ico'))
 win.geometry(f"{screen_width}x{screen_height}+{scPlus1}+{scPlus2}")
 win.resizable(0, 0)
 
-fl1 = tk.LabelFrame(win, text="View news").pack()
+LF1 = tk.LabelFrame(win, text="View news").pack()
 
-nb = ttk.Notebook(win)
+nb = ttk.Notebook(LF1)
 nb.pack(side='top', expand=1, fill='both', padx=10, pady=10)
 
 
-def create_text_widget(some_text):
-    text = scrolledtext.ScrolledText(fl1, borderwidth=5, width=450)
-    text.insert(0.0, some_text)
+def create_text_widget(parent, some_text):
+    text = scrolledtext.ScrolledText(parent, borderwidth=5, width=450)
+    text.insert(0.0, get_text_from_news(some_text))
     text.configure(state='disabled')
     text.pack(fill='both', expand=1, padx=10)
     return text
 
 
-for news, num in zip(info, range(55)):
-    # tab_name = 'tab' + str(num)
-    tab = create_text_widget(news)
-    nb.add(tab, text=news['title'].split()[:2] + '..')
-    del tab
+def get_short_title(news):
+    return " ".join(news['title'].split()[:2])
 
-# create_text_widget(i1)
+
+for news, num in zip(info, range(35)):
+    exec(f'tab{num} = create_text_widget(nb, news)')
+    exec(f'nb.add(tab{num}, text=get_short_title(news))')
 
 tk.Label(win, text="search what what are you intereseted in").pack(side='left')
 ent = tk.Entry(win).pack(side='right', fill='x', expand=1)

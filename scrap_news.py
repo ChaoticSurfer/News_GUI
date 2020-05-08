@@ -32,4 +32,3 @@ def scrapppping():
 
 
 a = scrapppping()
-print(a)

@@ -60,7 +60,7 @@ nb.pack(side='top', expand=1, fill='both', padx=10, pady=10)
 
 
 def create_text_widget(parent, some_text):
-    text = scrolledtext.ScrolledText(parent, borderwidth=5, width=450)
+    text = scrolledtext.ScrolledText(parent, borderwidth=5, width=450, font=(39))
     text.insert(0.0, get_text_from_news(some_text))
     text.configure(state='disabled')
     text.pack(fill='both', expand=1, padx=10)

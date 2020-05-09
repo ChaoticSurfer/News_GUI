@@ -29,6 +29,3 @@ def scrapppping():
         result.append({'title': title, 'time': time, 'content': content})
 
     return result
-
-
-a = scrapppping()

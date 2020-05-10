@@ -6,3 +6,4 @@ you can search text in current tab and answer comes out in indexes.(in the furtu
 event --> < Escape > messagebox will pop up asking if you want to quit.
 
 
+![app output](/tk_screen.png)

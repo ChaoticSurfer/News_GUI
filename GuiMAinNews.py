@@ -75,9 +75,9 @@ for news, num in zip(info, range(35)):
     exec(f'tab{num} = create_text_widget(nb, news)')
     exec(f'nb.add(tab{num}, text=get_short_title(news))')
 
-tk.Label(LF1, textvariable=search_var, font=('Sylfaen', 20)).pack()
+tk.Label(LF1, textvariable=search_var).pack()
 tk.Label(win, text="search what what are you intereseted in").pack(side='left')
-search = tk.Entry(win, font=('Sylfaen', 20))
+search = tk.Entry(win)
 search.pack(side='right', fill='x', expand=1)
 but1 = ttk.Button(win, text="Search", command=click_search).pack(side='left')
 win.bind('<Escape>', esc_destroy)
